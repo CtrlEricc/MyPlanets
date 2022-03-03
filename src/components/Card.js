@@ -2,16 +2,12 @@ import React from 'react'
 import { View, StyleSheet, Text, Image, TouchableWithoutFeedback } from 'react-native'
 
 export default props => {
-    let color = '#2a1265'
-    if (props.name === 'Terra' || props.name === props.selected) {
-        color = '#4a20a8'
-    }
     return (
         <TouchableWithoutFeedback
             disabled={props.name === 'Terra' ? true : false}
-            onPress={() => props.onClick(props.name)}>
-            <View style={[styles.card, { backgroundColor: color }]}>
-                <Image style={styles.image} source={props.imageUri} />
+            onPress={props.onClick}>
+            <View style={styles.card}>
+                <Image style={styles.image} source={props.imgSrc} />
                 <Text style={styles.title}>{props.name}</Text>
                 <Text style={styles.subtitle}>Força G: {props.gravity}</Text>
             </View>
@@ -22,6 +18,7 @@ export default props => {
 const styles = StyleSheet.create({
     card: {
         borderColor: '#4a20a8',
+        backgroundColor: '#2a1265',
         borderRadius: 20,
         borderWidth: 3,
         height: 170,
