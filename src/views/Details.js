@@ -15,12 +15,6 @@ export default props => {
             return data;
         });
 
-    /* useEffect(() => {
-        fetch(`https://api.le-systeme-solaire.net/rest/bodies/${params.id}`)
-            .then((resposta) => resposta.json())
-            .then((json) => { setDataPlanet(json) })
-    }, []) */
-
     function calcGravity() {
         let calc = ((params.gravity * Number(weightValue)) / 9.7).toFixed(2)  // 9.7 é Earth G
         return isNaN(calc) ? '0.00' : calc
